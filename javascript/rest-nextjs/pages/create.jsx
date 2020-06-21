@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import fetch from 'isomorphic-unfetch'
 import Layout from '../components/Layout'
 import Router from 'next/router'
@@ -11,8 +11,8 @@ const Draft = () => {
   const submitData = async e => {
     e.preventDefault()
     try {
-      const body = {title, content, authorEmail}
-      const res = await fetch(`http://localhost:3000/api/post`, {
+      const body = { title, content, authorEmail }
+      const res = await fetch(`https://prisma-test-sigma.vercel.app/api/post`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),

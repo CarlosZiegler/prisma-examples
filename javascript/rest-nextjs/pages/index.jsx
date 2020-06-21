@@ -34,7 +34,7 @@ const Blog = props => {
 }
 
 export const getServerSideProps = async () => {
-  const res = await fetch('http://localhost:3000/api/feed')
+  const res = await fetch('https://prisma-test-sigma.vercel.app/api/feed')
   const feed = await res.json()
   return {
     props: { feed },

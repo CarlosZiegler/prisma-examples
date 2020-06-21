@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import fetch from 'isomorphic-unfetch'
 import Router from 'next/router'
 import Layout from '../components/Layout'
@@ -10,8 +10,8 @@ const SignUp = () => {
   const submitData = async e => {
     e.preventDefault()
     try {
-      const body = {name, email}
-      const res = await fetch(`http://localhost:3000/api/user`, {
+      const body = { name, email }
+      const res = await fetch(`https://prisma-test-sigma.vercel.app/api/user`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),
@@ -24,35 +24,35 @@ const SignUp = () => {
   }
 
   return (
-  <Layout>
-    <div className="page">
-      <form
-        onSubmit={submitData}>
-        <h1>Signup user</h1>
-        <input
-          autoFocus
-          onChange={e => setName(e.target.value)}
-          placeholder="Name"
-          type="text"
-          value={name}
-        />
-        <input
-          onChange={e => setEmail(e.target.value)}
-          placeholder="Email address"
-          type="text"
-          value={email}
-        />
-        <input
-          disabled={!name || !email}
-          type="submit"
-          value="Signup"
-        />
-        <a className="back" href="#" onClick={() => Router.push('/')}>
-          or Cancel
+    <Layout>
+      <div className="page">
+        <form
+          onSubmit={submitData}>
+          <h1>Signup user</h1>
+          <input
+            autoFocus
+            onChange={e => setName(e.target.value)}
+            placeholder="Name"
+            type="text"
+            value={name}
+          />
+          <input
+            onChange={e => setEmail(e.target.value)}
+            placeholder="Email address"
+            type="text"
+            value={email}
+          />
+          <input
+            disabled={!name || !email}
+            type="submit"
+            value="Signup"
+          />
+          <a className="back" href="#" onClick={() => Router.push('/')}>
+            or Cancel
         </a>
-      </form>
-    </div>
-    <style jsx>{`
+        </form>
+      </div>
+      <style jsx>{`
       .page {
         background: white;
         padding: 3rem;
@@ -78,7 +78,7 @@ const SignUp = () => {
         margin-left: 1rem;
       }
     `}</style>
-  </Layout>
+    </Layout>
   )
 }
 
